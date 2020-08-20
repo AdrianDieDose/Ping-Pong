@@ -1,7 +1,30 @@
 // Setup
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const timeHtml = document.getElementById('time');
 
+// TIME LOGIC:
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  let valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+
+// GAME LOGIC:
 // Some sounds
 
 const hitSound = new Audio('../sounds/hitSound.wav');
@@ -48,9 +71,9 @@ const ball = {
     x: canvas.width / 2,
     y: canvas.height / 2,
     radius: 7,
-    speed: 70,
-    velocityX: 50,
-    velocityY: 50,
+    speed: 7,
+    velocityX: 5,
+    velocityY: 5,
     color: '#05edff'
 }
 

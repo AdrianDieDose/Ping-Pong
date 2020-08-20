@@ -14,7 +14,17 @@ body{
 }
 
 h1{
-    margin: 60px;
+    margin: 20px;
     font-size: 60px;
+    font-family: 'Staatliches', cursive;
+}
+
+.container {
+    text-align: center;
+    margin: 0px;
+}
+
+label {
+    font-size: 50px;
     font-family: 'Staatliches', cursive;
 }
