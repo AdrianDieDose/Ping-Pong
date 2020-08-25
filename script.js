@@ -3,6 +3,19 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const timeHtml = document.getElementById('time');
 
+
+// Difficulty change:
+
+
+
+
+
+
+
+
+
+
+
 // TIME LOGIC:
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
@@ -169,6 +182,20 @@ function keyUpHandler(event) {
 
 //  Update game
 function update() {
+    // Detect label
+    let labelValue = document.getElementById('label').value;
+    let aiDifficulty = 0.09;
+    switch (labelValue) {
+        case '1':
+            aiDifficulty = 0.09;
+        break;
+        case '2':
+            aiDifficulty = 0.25;
+        break
+        case '3':
+            aiDifficulty = 0.50;
+        break;
+    }
 
     // move the paddle
     if(upArrowPressed && user.y > 0) {
@@ -219,7 +246,7 @@ function update() {
 
 
     // ai paddle movement
-    ai.y += ((ball.y - (ai.y + ai.height / 2))) * 0.09;
+    ai.y += ((ball.y - (ai.y + ai.height / 2))) * aiDifficulty;
 
 
 
